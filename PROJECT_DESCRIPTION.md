@@ -4,7 +4,7 @@
 
 **Deployed Frontend URL:** <https://otc-options.vercel.app/>
 
-**Solana Program ID:** 4mL9toWrUSsafhQ4YybWjxH3bxdjFdEZgEnaD9pX893k
+**Solana Program ID:** AhcabRVb9LjuirKvfpeJatRsJFq3zsrrp8vAKGTaTTr4
 
 ### **Project Overview**
 
@@ -82,7 +82,7 @@ This program makes extensive use of Program Derived Addresses (PDAs) to securely
 
 ### **Program Architecture**
 
-The architecture leverages Solana's PDAs for secure, deterministic account management, with Anchor providing structure, validation, and serialization. The program cleanly separates user, escrow, and contract logic, supporting a full OTC options lifecycle with robust error handling and efficient on-chain storage
+### The architecture leverages Solana's PDAs for secure, deterministic account management, with Anchor providing structure, validation, and serialization. The program cleanly separates user, escrow, and contract logic, supporting a full OTC options lifecycle with robust error handling and efficient on-chain storage
 
 ### **PDA Usage**
 
@@ -333,25 +333,25 @@ Comprehensive test suite covering all instructions with both successful operatio
 
 #### Dependencies
 
-- 1. **Anchor CLI (if not already installed)**
+- 1. Install Solana Toolchain and dependencies
 
-cargo install --git <https://github.com/coral-xyz/anchor> avm --locked --force
+curl --proto '=https' --tlsv1.2 -sSfL <https://solana-install.solana.workers.dev> | bash
 
-avm install latest
+- 1. **Perform build**
 
-avm use latest
+export PATH="\$HOME/.local/share/solana/install/active_release/bin:\$PATH" && anchor build
 
-- 1. **Rust dependencies**
+- 1. **Generate new keypair**
 
-cd OTC_Options_v1/anchor anchor build
+solana-keygen new --no-bip39-passphrase --force
 
-- 1. **Node.js dependencies for Anchor tests**
+- 1. **Anchor test**
 
-cd OTC_Options_v1/anchor npm install
+export PATH="\$HOME/.local/share/solana/install/active_release/bin:\$PATH" && anchor test
 
 - 1. **Frontend dependencies (Next.js)**
 
-cd OTC_Options_v1 npm install
+npm install
 
 - 1. **Set Up Solana CLI and Keypair**
 
